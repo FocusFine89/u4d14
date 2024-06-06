@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class GaraDiAtletica extends Event {
     //Attributi
-    private List<Person> atleti;
+    private List<String> atleti;
     private Person vincitore;
 
     //Costruttori
@@ -15,7 +15,7 @@ public class GaraDiAtletica extends Event {
     public GaraDiAtletica() {
     }
 
-    public GaraDiAtletica(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location, List<Person> atleti, Person vincitore) {
+    public GaraDiAtletica(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location, List<String> atleti, Person vincitore) {
         super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti, location);
         this.atleti = atleti;
         this.vincitore = vincitore;
@@ -23,11 +23,11 @@ public class GaraDiAtletica extends Event {
 
     //Metodi
 
-    public List<Person> getAtleti() {
+    public List<String> getAtleti() {
         return atleti;
     }
 
-    public void setAtleti(List<Person> atleti) {
+    public void setAtleti(List<String> atleti) {
         this.atleti = atleti;
     }
 

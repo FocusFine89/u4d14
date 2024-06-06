@@ -1,5 +1,7 @@
 package epicode.dao;
 
+import epicode.entities.ConcertType;
+import epicode.entities.Concerto;
 import epicode.entities.Event;
 
 import javax.persistence.EntityManager;
@@ -49,9 +51,15 @@ public class EventsDAO {
     }
 
     //Metodi JPQL
-    public List<Event> getConcertInStreaming(boolean bool) {
-        TypedQuery<Event> query = em.createQuery("SELECT e FROM Event e WHERE e.inStreming= :bool", Event.class);
+    public List<Concerto> getConcertInStreaming(boolean bool) {
+        TypedQuery<Concerto> query = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreming= :bool", Concerto.class);
         query.setParameter("bool", bool);
+        return query.getResultList();
+    }
+
+    public List<Concerto> getConcertiPerGenere(ConcertType genere) {
+        TypedQuery<Concerto> query = em.createQuery("SELECT c FROM Concerto c WHERE c.genere= :genere", Concerto.class);
+        query.setParameter("genere", genere);
         return query.getResultList();
     }
 
