@@ -4,6 +4,8 @@ import epicode.entities.Event;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EventsDAO {
     private EntityManager em;
@@ -45,4 +47,12 @@ public class EventsDAO {
             System.out.println(e.getMessage());
         }
     }
+
+    //Metodi JPQL
+    public List<Event> getConcertInStreaming(boolean bool) {
+        TypedQuery<Event> query = em.createQuery("SELECT e FROM Event e WHERE e.inStreming= :bool", Event.class);
+        query.setParameter("bool", bool);
+        return query.getResultList();
+    }
+
 }
