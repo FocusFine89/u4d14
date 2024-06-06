@@ -1,9 +1,13 @@
 package epicode.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import java.time.LocalDate;
 
 @Entity
+
+@NamedQuery(name = "getPartiteVinteInCasa", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraDiCasa=p.vincente")
+@NamedQuery(name = "getPartiteVinteInTrasferta", query = "SELECT p FROM PartitaDiCalcio p WHERE p.ospite=p.vincente")
 public class PartitaDiCalcio extends Event {
     //Attributi
     private String squadraDiCasa;

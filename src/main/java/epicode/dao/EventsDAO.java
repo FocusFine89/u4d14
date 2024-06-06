@@ -3,6 +3,7 @@ package epicode.dao;
 import epicode.entities.ConcertType;
 import epicode.entities.Concerto;
 import epicode.entities.Event;
+import epicode.entities.PartitaDiCalcio;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -60,6 +61,19 @@ public class EventsDAO {
     public List<Concerto> getConcertiPerGenere(ConcertType genere) {
         TypedQuery<Concerto> query = em.createQuery("SELECT c FROM Concerto c WHERE c.genere= :genere", Concerto.class);
         query.setParameter("genere", genere);
+        return query.getResultList();
+    }
+
+    //Metody NamedQuery JPA
+    public List<PartitaDiCalcio> vinteInCasa() {
+        //Richiamo la named Query
+        TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("getPertiteVinteInCasa", PartitaDiCalcio.class);
+        return query.getResultList();
+    }
+
+    public List<PartitaDiCalcio> vinteInTrasferta() {
+        //Richiamo la named Query
+        TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("getPertiteVinteInTrasferta", PartitaDiCalcio.class);
         return query.getResultList();
     }
 
