@@ -26,6 +26,6 @@ public class Application {
 
         // ******************** SALVATAGGIO LOCATIONS, UTENTI E EVENTI ************************
 
-
+        
     }
 }
